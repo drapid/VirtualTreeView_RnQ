@@ -1,8 +1,8 @@
-Delphi/*.cfg
-Delphi/*.dof
-Delphi/*.dsk
-Delphi/*.identcache
-Delphi/__history
+Delphi-deprecated/*.cfg
+Delphi-deprecated/*.dof
+Delphi-deprecated/*.dsk
+Delphi-deprecated/*.identcache
+Delphi-deprecated/__history
 Design/__history
 Packages/BDS[!!-~]2006/*.cfg
 Packages/BDS[!!-~]2006/*.dof
