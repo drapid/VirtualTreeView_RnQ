@@ -1,3 +1,7 @@
+Contributions/*.xml
+Contributions/GenericWrapper/*.xml
+Contributions/GenericWrapper/__history
+Contributions/__history
 Delphi-deprecated/*.cfg
 Delphi-deprecated/*.dof
 Delphi-deprecated/*.dsk

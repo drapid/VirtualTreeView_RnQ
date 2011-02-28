@@ -21,6 +21,7 @@ Common/Compilers.h -text
 Common/Compilers.inc -text
 Common/MSAAIntf.pas -text
 Common/Readme.txt -text
+Contributions/GenericWrapper/VirtualTreeWrapper.pas -text
 Delphi-deprecated/DelphiGems.VirtualTrees.Design.bdsproj.local -text
 Delphi-deprecated/DelphiGems.VirtualTrees.Design.dpk -text
 Delphi-deprecated/DelphiGems.VirtualTrees.bdsproj -text
