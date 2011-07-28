@@ -145,12 +145,6 @@ Design/StrEditD4.pas -text
 Design/VirtualTrees.dcr -text
 Design/VirtualTreesReg.hpp -text
 Design/VirtualTreesReg.pas -text
-Packages/BCB[!!-~]4/VirtualTreesD.bpk -text
-Packages/BCB[!!-~]4/VirtualTreesD.cpp -text
-Packages/BCB[!!-~]4/VirtualTreesD.res -text
-Packages/BCB[!!-~]4/VirtualTreesR.bpk -text
-Packages/BCB[!!-~]4/VirtualTreesR.cpp -text
-Packages/BCB[!!-~]4/VirtualTreesR.res -text
 Packages/BCB[!!-~]5/VirtualTreesD.bpk -text
 Packages/BCB[!!-~]5/VirtualTreesD.cpp -text
 Packages/BCB[!!-~]5/VirtualTreesD.res -text
