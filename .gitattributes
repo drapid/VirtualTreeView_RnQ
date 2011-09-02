@@ -1,10 +1,4 @@
 * text=auto !eol
-CBuilder/VirtualTreesC4.bpk -text
-CBuilder/VirtualTreesC4.cpp -text
-CBuilder/VirtualTreesC4.res -text
-CBuilder/VirtualTreesC4D.bpk -text
-CBuilder/VirtualTreesC4D.cpp -text
-CBuilder/VirtualTreesC4D.res -text
 CBuilder/VirtualTreesC5.bpk -text
 CBuilder/VirtualTreesC5.cpp -text
 CBuilder/VirtualTreesC5.res -text
