@@ -20,8 +20,10 @@ Packages/Delphi[!!-~]7/*.cfg
 Packages/Delphi[!!-~]7/*.dcu
 Packages/Delphi[!!-~]7/*.~dpk
 Resources/Thumbs.db
+Source/*.bak
 Source/*.dcu
 Source/*.xml
+Source/*.~inc
 Source/*.~pas
 Source/VTHeaderPopup.hpp
 Source/VirtualTrees.hpp
