@@ -17,7 +17,8 @@ Packages/BDS[!!-~]2006/Old
 Packages/BDS[!!-~]2006/__history
 Packages/Delphi[!!-~]2005/*.cfg
 Packages/Delphi[!!-~]7/*.cfg
-Packages/Delphi[!!-~]7/*.dof
+Packages/Delphi[!!-~]7/*.dcu
+Packages/Delphi[!!-~]7/*.~dpk
 Resources/Thumbs.db
 Source/*.xml
 Source/VTHeaderPopup.hpp
