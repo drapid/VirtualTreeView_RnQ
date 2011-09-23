@@ -16,12 +16,6 @@ Common/Compilers.inc -text
 Common/MSAAIntf.pas -text
 Common/Readme.txt -text
 Contributions/GenericWrapper/VirtualTreeWrapper.pas -text
-Delphi-deprecated/DelphiGems.VirtualTrees.Design.bdsproj.local -text
-Delphi-deprecated/DelphiGems.VirtualTrees.Design.dpk -text
-Delphi-deprecated/DelphiGems.VirtualTrees.bdsproj -text
-Delphi-deprecated/DelphiGems.VirtualTrees.bdsproj.local -text
-Delphi-deprecated/DelphiGems.VirtualTrees.dpk -text
-Delphi-deprecated/DelphiGems.VirtualTrees.rsp -text
 Delphi-deprecated/VirtualTreesD10.bdsproj -text
 Delphi-deprecated/VirtualTreesD10.bdsproj.local -text
 Delphi-deprecated/VirtualTreesD10.dpk -text
@@ -233,9 +227,6 @@ Source/VTConfig.inc -text
 Source/VTHeaderPopup.NET.pas -text
 Source/VTHeaderPopup.dtx -text
 Source/VTHeaderPopup.pas -text
-Source/VirtualTrees.NET.pas -text
-Source/VirtualTrees.NET.resources -text
-Source/VirtualTrees.NET.resx -text
 Source/VirtualTrees.dtx -text
 Source/VirtualTrees.pas -text
 Source/VirtualTrees.res -text
