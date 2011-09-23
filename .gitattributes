@@ -11,6 +11,7 @@ CBuilder/VirtualTreesC6.res -text
 CBuilder/VirtualTreesC6D.bpk -text
 CBuilder/VirtualTreesC6D.cpp -text
 CBuilder/VirtualTreesC6D.res -text
+/CHANGES.txt -text
 Common/Compilers.h -text
 Common/Compilers.inc -text
 Common/MSAAIntf.pas -text
