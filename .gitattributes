@@ -224,7 +224,6 @@ Resources/VT[!!-~]vertical[!!-~]split.cur -text
 Source/VTAccessibility.pas -text
 Source/VTAccessibilityFactory.pas -text
 Source/VTConfig.inc -text
-Source/VTHeaderPopup.NET.pas -text
 Source/VTHeaderPopup.dtx -text
 Source/VTHeaderPopup.pas -text
 Source/VirtualTrees.dtx -text
