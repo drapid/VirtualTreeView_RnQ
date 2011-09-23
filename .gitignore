@@ -5,11 +5,6 @@ Contributions/*.xml
 Contributions/GenericWrapper/*.xml
 Contributions/GenericWrapper/__history
 Contributions/__history
-Delphi-deprecated/*.cfg
-Delphi-deprecated/*.dof
-Delphi-deprecated/*.dsk
-Delphi-deprecated/*.identcache
-Delphi-deprecated/__history
 Demos/Advanced/*.bak
 Demos/Advanced/__history
 Design/*.dcu
@@ -45,4 +40,3 @@ Source/*.~pas
 Source/VTHeaderPopup.hpp
 Source/VirtualTrees.hpp
 Source/__history
-intermediate/*.dcu
