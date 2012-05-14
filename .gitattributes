@@ -6,6 +6,7 @@ Common/MSAAIntf.pas -text
 Common/Readme.txt -text
 Contributions/GenericWrapper/VirtualTreeWrapper.pas -text
 Demos/Advanced/Advanced.bdsproj -text
+Demos/Advanced/Advanced.dof -text
 Demos/Advanced/Advanced.dpr -text
 Demos/Advanced/Advanced.exe.Manifest -text
 Demos/Advanced/Advanced.res -text
@@ -63,17 +64,20 @@ Demos/Advanced/WindowsXPStyleDemo.pas -text
 Demos/Advanced/mainicon.ico -text
 Demos/Minimal/Main.dfm -text
 Demos/Minimal/Main.pas -text
+Demos/Minimal/Minimal.dof -text
 Demos/Minimal/Minimal.dpr -text
 Demos/Minimal/Minimal.exe.Manifest -text
 Demos/Minimal/Minimal.res -text
 Demos/Minimal/mainicon.ico -text
 Demos/OLE/Main.dfm -text
 Demos/OLE/Main.pas -text
+Demos/OLE/OLE.dof -text
 Demos/OLE/OLE.dpr -text
 Demos/OLE/OLE.exe.Manifest -text
 Demos/OLE/Res/Extra.res -text
 Demos/OLE/Res/Text.rtf -text svneol=unset#unset
 Demos/OLE/mainicon.ico -text
+Demos/Objects/MVCDemo.dof -text
 Demos/Objects/MVCDemo.dpr -text
 Demos/Objects/MVCDemo.res -text
 Demos/Objects/MVCDemoMain.dfm -text
