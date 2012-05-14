@@ -1,16 +1,4 @@
 * text=auto !eol
-CBuilder/VirtualTreesC5.bpk -text
-CBuilder/VirtualTreesC5.cpp -text
-CBuilder/VirtualTreesC5.res -text
-CBuilder/VirtualTreesC5D.bpk -text
-CBuilder/VirtualTreesC5D.cpp -text
-CBuilder/VirtualTreesC5D.res -text
-CBuilder/VirtualTreesC6.bpk -text
-CBuilder/VirtualTreesC6.cpp -text
-CBuilder/VirtualTreesC6.res -text
-CBuilder/VirtualTreesC6D.bpk -text
-CBuilder/VirtualTreesC6D.cpp -text
-CBuilder/VirtualTreesC6D.res -text
 /CHANGES.txt -text
 Common/Compilers.h -text
 Common/Compilers.inc -text
