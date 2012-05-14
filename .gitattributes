@@ -84,7 +84,6 @@ Demos/Objects/Objects.exe.Manifest -text
 Demos/Objects/mainicon.ico -text
 Demos/VirtualTreeview.bdsgroup -text
 Demos/VirtualTreeview.bpg -text
-Design/DelphiGems.VirtualControls.VirtualTreesReg.pas -text
 Design/VirtualTrees.dcr -text
 Design/VirtualTreesReg.hpp -text
 Design/VirtualTreesReg.pas -text
