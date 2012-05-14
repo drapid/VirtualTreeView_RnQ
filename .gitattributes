@@ -1,6 +1,5 @@
 * text=auto !eol
 /CHANGES.txt -text
-Common/Compilers.h -text
 Common/Compilers.inc -text
 Common/MSAAIntf.pas -text
 Common/Readme.txt -text
