@@ -88,6 +88,7 @@ Design/VirtualTrees.dcr -text
 Design/VirtualTreesReg.hpp -text
 Design/VirtualTreesReg.pas -text
 /INSTALL.txt -text
+/MakeRelease.Bat -text
 Packages/BDS[!!-~]2006/DelphiGems.VirtualControls.VirtualTrees.bdsproj -text
 Packages/BDS[!!-~]2006/DelphiGems.VirtualControls.VirtualTrees.dpk -text
 Packages/BDS[!!-~]2006/DelphiGems.VirtualControls.VirtualTrees.resources -text
