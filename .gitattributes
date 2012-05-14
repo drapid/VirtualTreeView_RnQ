@@ -100,6 +100,7 @@ Design/DelphiGems.VirtualControls.VirtualTreesReg.pas -text
 Design/VirtualTrees.dcr -text
 Design/VirtualTreesReg.hpp -text
 Design/VirtualTreesReg.pas -text
+/INSTALL.txt -text
 Packages/BDS[!!-~]2006/DelphiGems.VirtualControls.VirtualTrees.bdsproj -text
 Packages/BDS[!!-~]2006/DelphiGems.VirtualControls.VirtualTrees.dpk -text
 Packages/BDS[!!-~]2006/DelphiGems.VirtualControls.VirtualTrees.resources -text
@@ -165,7 +166,6 @@ Packages/Delphi[!!-~]XE2/VirtualTreesD.res -text
 Packages/Delphi[!!-~]XE2/VirtualTreesR.dpk -text
 Packages/Delphi[!!-~]XE2/VirtualTreesR.dproj -text
 Packages/Delphi[!!-~]XE2/VirtualTreesR.res -text
-/Read[!!-~]me.txt -text
 Resources/VT[!!-~]XP[!!-~]button[!!-~]minus.bmp -text
 Resources/VT[!!-~]XP[!!-~]button[!!-~]plus.bmp -text
 Resources/VT[!!-~]XP.bmp -text
