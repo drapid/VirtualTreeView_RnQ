@@ -10,6 +10,7 @@ Demos/Advanced/__history
 Design/*.dcu
 Design/*.~pas
 Design/__history
+Help/Source/Include/*.bak
 Packages/BDS[!!-~]2006/*.cfg
 Packages/BDS[!!-~]2006/*.dof
 Packages/BDS[!!-~]2006/*.identcache
