@@ -219,6 +219,7 @@ Help/Source/Include/specialtopics.dtx -text
 Help/Source/VirtualTreeview.dox -text
 Help/Source/VirtualTreeview.doxdb -text
 Help/Source/VirtualTreeview.ldb -text
+Help/VirtualTreeview.chm -text
 /INSTALL.txt -text
 /MakeRelease.Bat -text
 Packages/BDS[!!-~]2006/DelphiGems.VirtualControls.VirtualTrees.bdsproj -text
