@@ -259,9 +259,12 @@ Packages/Delphi[!!-~]2009/VirtualTreesD.dpk -text
 Packages/Delphi[!!-~]2009/VirtualTreesD.res -text
 Packages/Delphi[!!-~]2009/VirtualTreesR.dpk -text
 Packages/Delphi[!!-~]2009/VirtualTreesR.res -text
+Packages/Delphi[!!-~]2010/Delphi[!!-~]2010.groupproj -text
 Packages/Delphi[!!-~]2010/VirtualTreesD.dpk -text
+Packages/Delphi[!!-~]2010/VirtualTreesD.dproj -text
 Packages/Delphi[!!-~]2010/VirtualTreesD.res -text
 Packages/Delphi[!!-~]2010/VirtualTreesR.dpk -text
+Packages/Delphi[!!-~]2010/VirtualTreesR.dproj -text
 Packages/Delphi[!!-~]2010/VirtualTreesR.res -text
 Packages/Delphi[!!-~]7/VirtualTrees.bpg -text
 Packages/Delphi[!!-~]7/VirtualTreesD.cfg -text
