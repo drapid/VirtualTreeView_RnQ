@@ -73,6 +73,7 @@ Demos/OLE/Main.pas -text
 Demos/OLE/OLE.dof -text
 Demos/OLE/OLE.dpr -text
 Demos/OLE/OLE.exe.Manifest -text
+Demos/OLE/OLE.res -text
 Demos/OLE/Res/Extra.res -text
 Demos/OLE/Res/Text.rtf -text svneol=unset#unset
 Demos/OLE/mainicon.ico -text
