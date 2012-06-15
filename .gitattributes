@@ -1,7 +1,5 @@
 * text=auto !eol
 /CHANGES.txt -text
-Common/MSAAIntf.pas -text
-Common/Readme.txt -text
 Contributions/GenericWrapper/VirtualTreeWrapper.pas -text
 Demos/Advanced/Advanced.bdsproj -text
 Demos/Advanced/Advanced.dof -text
