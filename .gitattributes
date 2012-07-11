@@ -220,14 +220,6 @@ Help/Source/VirtualTreeview.ldb -text
 Help/VirtualTreeview.chm -text
 /INSTALL.txt -text
 /MakeRelease.Bat -text
-Packages/BDS[!!-~]2006/DelphiGems.VirtualControls.VirtualTrees.bdsproj -text
-Packages/BDS[!!-~]2006/DelphiGems.VirtualControls.VirtualTrees.dpk -text
-Packages/BDS[!!-~]2006/DelphiGems.VirtualControls.VirtualTrees.resources -text
-Packages/BDS[!!-~]2006/DelphiGems.VirtualControls.VirtualTrees.rsp -text
-Packages/BDS[!!-~]2006/DelphiGems.VirtualControls.VirtualTreesD.bdsproj -text
-Packages/BDS[!!-~]2006/DelphiGems.VirtualControls.VirtualTreesD.dpk -text
-Packages/BDS[!!-~]2006/VirtualTrees.NET.resources -text
-Packages/BDS[!!-~]2006/VirtualTrees.NET.resx -text
 Packages/BDS[!!-~]2006/VirtualTreesD.bdsproj -text
 Packages/BDS[!!-~]2006/VirtualTreesD.dpk -text
 Packages/BDS[!!-~]2006/VirtualTreesD.res -text
