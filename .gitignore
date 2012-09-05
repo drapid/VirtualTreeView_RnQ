@@ -77,6 +77,9 @@ Packages/Delphi[!!-~]XE/__history
 Packages/RAD[!!-~]Studio[!!-~]XE2/*.dcu
 Packages/RAD[!!-~]Studio[!!-~]XE2/*.identcache
 Packages/RAD[!!-~]Studio[!!-~]XE2/*.local
+Packages/RAD[!!-~]Studio[!!-~]XE3/*.identcache
+Packages/RAD[!!-~]Studio[!!-~]XE3/*.local
+Packages/RAD[!!-~]Studio[!!-~]XE3/__history
 Resources/Thumbs.db
 Source/*.bak
 Source/*.dcu
