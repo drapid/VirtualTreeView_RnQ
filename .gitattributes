@@ -6,22 +6,22 @@ Demos/Advanced/Advanced.dof -text
 Demos/Advanced/Advanced.dpr -text
 Demos/Advanced/Advanced.exe.Manifest -text
 Demos/Advanced/Advanced.res -text
-Demos/Advanced/AlignDemo.dfm -text
+Demos/Advanced/AlignDemo.dfm -text svneol=unset#application/octet-stream
 Demos/Advanced/AlignDemo.pas -text
-Demos/Advanced/DrawTreeDemo.dfm -text
+Demos/Advanced/DrawTreeDemo.dfm -text svneol=unset#application/octet-stream
 Demos/Advanced/DrawTreeDemo.pas -text
 Demos/Advanced/Editors.pas -text
-Demos/Advanced/GeneralAbilitiesDemo.dfm -text
+Demos/Advanced/GeneralAbilitiesDemo.dfm -text svneol=unset#application/octet-stream
 Demos/Advanced/GeneralAbilitiesDemo.pas -text
-Demos/Advanced/GridDemo.dfm -text
+Demos/Advanced/GridDemo.dfm -text svneol=unset#application/octet-stream
 Demos/Advanced/GridDemo.pas -text
-Demos/Advanced/HeaderCustomDrawDemo.dfm -text
+Demos/Advanced/HeaderCustomDrawDemo.dfm -text svneol=unset#application/octet-stream
 Demos/Advanced/HeaderCustomDrawDemo.pas -text
-Demos/Advanced/Main.dfm -text
+Demos/Advanced/Main.dfm -text svneol=unset#application/octet-stream
 Demos/Advanced/Main.pas -text
-Demos/Advanced/MultilineDemo.dfm -text
+Demos/Advanced/MultilineDemo.dfm -text svneol=unset#application/octet-stream
 Demos/Advanced/MultilineDemo.pas -text
-Demos/Advanced/PropertiesDemo.dfm -text
+Demos/Advanced/PropertiesDemo.dfm -text svneol=unset#application/octet-stream
 Demos/Advanced/PropertiesDemo.pas -text
 Demos/Advanced/Res/Arabic.uni -text
 Demos/Advanced/Res/Background.bmp -text
@@ -49,23 +49,23 @@ Demos/Advanced/Res/Paintbrush.bmp -text
 Demos/Advanced/Res/Sheets.bmp -text
 Demos/Advanced/Res/Transcriptions.bmp -text
 Demos/Advanced/Res/XP.bmp -text
-Demos/Advanced/SpeedDemo.dfm -text
+Demos/Advanced/SpeedDemo.dfm -text svneol=unset#application/octet-stream
 Demos/Advanced/SpeedDemo.pas -text
 Demos/Advanced/States.dfm -text
 Demos/Advanced/States.pas -text
-Demos/Advanced/VisibilityDemo.dfm -text
+Demos/Advanced/VisibilityDemo.dfm -text svneol=unset#application/octet-stream
 Demos/Advanced/VisibilityDemo.pas -text
 Demos/Advanced/WindowsXPStyleDemo.dfm -text
 Demos/Advanced/WindowsXPStyleDemo.pas -text
 Demos/Advanced/mainicon.ico -text
-Demos/Minimal/Main.dfm -text
+Demos/Minimal/Main.dfm -text svneol=unset#application/octet-stream
 Demos/Minimal/Main.pas -text
 Demos/Minimal/Minimal.dof -text
 Demos/Minimal/Minimal.dpr -text
 Demos/Minimal/Minimal.exe.Manifest -text
 Demos/Minimal/Minimal.res -text
 Demos/Minimal/mainicon.ico -text
-Demos/OLE/Main.dfm -text
+Demos/OLE/Main.dfm -text svneol=unset#application/octet-stream
 Demos/OLE/Main.pas -text
 Demos/OLE/OLE.dof -text
 Demos/OLE/OLE.dpr -text
