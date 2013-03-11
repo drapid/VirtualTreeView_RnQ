@@ -11,6 +11,7 @@ Demos/Advanced/AlignDemo.pas -text
 Demos/Advanced/DrawTreeDemo.dfm -text svneol=unset#application/octet-stream
 Demos/Advanced/DrawTreeDemo.pas -text
 Demos/Advanced/Editors.pas -text
+Demos/Advanced/ExtraRes.rc -text
 Demos/Advanced/GeneralAbilitiesDemo.dfm -text svneol=unset#application/octet-stream
 Demos/Advanced/GeneralAbilitiesDemo.pas -text
 Demos/Advanced/GridDemo.dfm -text svneol=unset#application/octet-stream
@@ -33,7 +34,6 @@ Demos/Advanced/Res/Clipboard.bmp -text
 Demos/Advanced/Res/Cyrillic.bmp -text
 Demos/Advanced/Res/Earth.bmp -text
 Demos/Advanced/Res/Exit.bmp -text
-Demos/Advanced/Res/ExtraRes.rc -text
 Demos/Advanced/Res/Eye.bmp -text
 Demos/Advanced/Res/Fist.bmp -text
 Demos/Advanced/Res/ForeignStrings.rc -text
