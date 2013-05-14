@@ -10,6 +10,8 @@ Demos/Advanced/*.ddp
 Demos/Advanced/*.drc
 Demos/Advanced/*.dsk
 Demos/Advanced/*.exe
+Demos/Advanced/*.identcache
+Demos/Advanced/*.local
 Demos/Advanced/*.map
 Demos/Advanced/*.~dfm
 Demos/Advanced/*.~dsk
@@ -77,8 +79,10 @@ Packages/Delphi[!!-~]XE/__history
 Packages/RAD[!!-~]Studio[!!-~]XE2/*.dcu
 Packages/RAD[!!-~]Studio[!!-~]XE2/*.identcache
 Packages/RAD[!!-~]Studio[!!-~]XE2/*.local
+Packages/RAD[!!-~]Studio[!!-~]XE3/*.dsk
 Packages/RAD[!!-~]Studio[!!-~]XE3/*.identcache
 Packages/RAD[!!-~]Studio[!!-~]XE3/*.local
+Packages/RAD[!!-~]Studio[!!-~]XE3/*.~dsk
 Packages/RAD[!!-~]Studio[!!-~]XE3/__history
 Resources/Thumbs.db
 Source/*.bak
