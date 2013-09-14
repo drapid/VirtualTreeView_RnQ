@@ -298,6 +298,13 @@ Packages/RAD[!!-~]Studio[!!-~]XE4/VirtualTreesD.res -text
 Packages/RAD[!!-~]Studio[!!-~]XE4/VirtualTreesR.dpk -text
 Packages/RAD[!!-~]Studio[!!-~]XE4/VirtualTreesR.dproj -text
 Packages/RAD[!!-~]Studio[!!-~]XE4/VirtualTreesR.res -text
+Packages/RAD[!!-~]Studio[!!-~]XE5/RAD[!!-~]Studio[!!-~]XE5.groupproj -text
+Packages/RAD[!!-~]Studio[!!-~]XE5/VirtualTreesD.dpk -text
+Packages/RAD[!!-~]Studio[!!-~]XE5/VirtualTreesD.dproj -text
+Packages/RAD[!!-~]Studio[!!-~]XE5/VirtualTreesD.res -text
+Packages/RAD[!!-~]Studio[!!-~]XE5/VirtualTreesR.dpk -text
+Packages/RAD[!!-~]Studio[!!-~]XE5/VirtualTreesR.dproj -text
+Packages/RAD[!!-~]Studio[!!-~]XE5/VirtualTreesR.res -text
 Resources/VT[!!-~]XP[!!-~]button[!!-~]minus.bmp -text
 Resources/VT[!!-~]XP[!!-~]button[!!-~]plus.bmp -text
 Resources/VT[!!-~]XP.bmp -text
