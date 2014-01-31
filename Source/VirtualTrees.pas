@@ -21,6 +21,12 @@ unit VirtualTrees;
 // Portions created by digital publishing AG are Copyright
 // (C) 1999-2001 digital publishing AG. All Rights Reserved.
 //----------------------------------------------------------------------------------------------------------------------
+{$DEFINE Fr0sT_mod}
+// ###  Fr0sT mod:  ###
+// * Zebra line painting (odd and even lines could be filled with different background color)
+//    Added: toZebraLines value to TVTPaintOption
+//           OddLineColor, EvenLineColor fields to TVTColors
+// ####################
 //
 // For a list of recent changes please see file CHANGES.TXT
 //
@@ -424,6 +430,10 @@ type
     toUseExplorerTheme,        // Use the explorer theme if run under Windows Vista (or above).
     toHideTreeLinesIfThemed,   // Do not show tree lines if theming is used.
     toShowFilteredNodes        // Draw nodes even if they are filtered out.
+    {$IFDEF Fr0sT_mod}
+    // Feature: Zebra lines
+    , toZebraLines             // Paint odd and even lines with different background colors
+    {$ENDIF Fr0sT_mod}
   );
   TVTPaintOptions = set of TVTPaintOption;
 
@@ -1547,7 +1557,12 @@ type
   TVTColors = class(TPersistent)
   private
     FOwner: TBaseVirtualTree;
+    {$IFDEF Fr0sT_mod}
+    // Feature: Zebra lines
+    FColors: array[0..17] of TColor;
+    {$ELSE}
     FColors: array[0..16] of TColor; // [IPK] 15 -> 16
+    {$ENDIF Fr0sT_mod}
     function GetColor(const Index: Integer): TColor;
     procedure SetColor(const Index: Integer; const Value: TColor);
     function GetBackgroundColor: TColor;
@@ -1578,6 +1593,11 @@ type
     property UnfocusedColor: TColor index 16 read GetColor write SetColor default clBtnFace; // [IPK] Added
     property UnfocusedSelectionColor: TColor index 6 read GetColor write SetColor default clBtnFace;
     property UnfocusedSelectionBorderColor: TColor index 10 read GetColor write SetColor default clBtnFace;
+    {$IFDEF Fr0sT_mod}
+    // Feature: Zebra lines
+    property OddLineColor: TColor index 16 read GetColor write SetColor default cl3DLight;
+    property EvenLineColor: TColor index 17 read GetColor write SetColor default clWindow;
+    {$ENDIF Fr0sT_mod}
   end;
 
   // For painting a node and its columns/cells a lot of information must be passed frequently around.
@@ -13792,6 +13812,11 @@ begin
   FColors[14] := clBtnShadow;     // HeaderHotColor
   FColors[15] := clHighlightText; // SelectionTextColor
   FColors[16] := clBtnFace;       // UnfocusedColor  [IPK]
+  {$IFDEF Fr0sT_mod}
+  // Feature: Zebra lines
+  FColors[16] := cl3DLight;       // OddLineColor
+  FColors[17] := clWindow;        // EvenLineColor
+  {$ENDIF Fr0sT_mod}
 end;
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -14781,7 +14806,24 @@ begin
   BackColor := FColors.BackGroundColor;
   with PaintInfo do
   begin
+    {$IFDEF Fr0sT_mod}
+    // Feature: Zebra lines
+      if toZebraLines in TreeOptions.PaintOptions then
+      begin
+        EraseAction := eaColor;
+        if Node.Index mod 2 = 0 then
+          BackColor := Colors.EvenLineColor
+        else
+          BackColor := Colors.OddLineColor;
+      end
+      else
+      begin
     EraseAction := eaDefault;
+        BackColor := Color;
+      end;
+    {$ELSE}
+      EraseAction := eaDefault;
+    {$ENDIF Fr0sT_mod}
 
     if Floating then
     begin
