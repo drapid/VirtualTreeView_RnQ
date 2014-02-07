@@ -12691,71 +12691,20 @@ begin
     // to handle WM_LBUTTONDOWN here, too.
     WM_LBUTTONDOWN,
     WM_NCLBUTTONDOWN:
-      {$IFDEF Fr0sT_mod}
+      // {$IFDEF Fr0sT_mod} !! Feature implanted into main code !!
       // Feature: design-time header
-      // Code is partial copy of run-time one except event calls and option checks
-      // (in design-time header columns are always resizable/draggable)
-      if csDesigning in Treeview.ComponentState then
-      begin
-        if Message.Msg = WM_LBUTTONDOWN then
-          // Coordinates are already client area based.
-          with TWMLButtonDown(Message) do
-            P := Point(XPos, YPos)
-        else
-          with TWMNCLButtonDown(Message) do
-          begin
-            // want the drag start point in screen coordinates
-            FDragStart := Point(XCursor, YCursor);
-            P := Treeview.ScreenToClient(FDragStart);
-          end;
-
-        IsInHeader := InHeader(P);
-        IsVSplitterHit := InHeaderSplitterArea(P);
-        IsHSplitterHit := HSplitterHit;
-
-        if IsVSplitterHit or IsHSplitterHit then
-        begin
-          FTrackStart := P;
-          FColumns.FHoverIndex := NoColumn;
-          if IsVSplitterHit then
-          begin
-            Include(FStates, hsHeightTrackPending)
-          end
-          else
-          begin
-            Include(FStates, hsColumnWidthTrackPending);
-          end;
-
-          SetCapture(Treeview.Handle);
-          Result := True;
-          Message.Result := 0;
-        end
-        else
-          if IsInHeader then
-          begin
-            HitIndex := Columns.AdjustDownColumn(P);
-            if (HitIndex > NoColumn) then
-            begin
-              // Show potential drag operation.
-              // Disabled columns do not start a drag operation because they can't be clicked.
-              Include(FStates, hsDragPending);
-              SetCapture(Treeview.Handle);
-              Result := True;
-              Message.Result := 0;
-            end;
-          end;
-      end
-      else
-      {$ENDIF Fr0sT_mod}
       begin
         Application.CancelHint;
 
-        // make sure no auto scrolling is active...
-        Treeview.StopTimer(ScrollTimer);
-        Treeview.DoStateChange([], [tsScrollPending, tsScrolling]);
-        // ... pending editing is cancelled (actual editing remains active)
-        Treeview.StopTimer(EditTimer);
-        Treeview.DoStateChange([], [tsEditPending]);
+        if not (csDesigning in Treeview.ComponentState) then
+        begin
+          // make sure no auto scrolling is active...
+          Treeview.StopTimer(ScrollTimer);
+          Treeview.DoStateChange([], [tsScrollPending, tsScrolling]);
+          // ... pending editing is cancelled (actual editing remains active)
+          Treeview.StopTimer(EditTimer);
+          Treeview.DoStateChange([], [tsEditPending]);
+        end;
 
         if Message.Msg = WM_LBUTTONDOWN then
           // Coordinates are already client area based.
@@ -12770,7 +12719,11 @@ begin
           end;
 
         IsInHeader := InHeader(P);
-        IsVSplitterHit := InHeaderSplitterArea(P) and CanSplitterResize(P);
+        // in design-time header columns are always resizable
+        if (csDesigning in Treeview.ComponentState) then
+          IsVSplitterHit := InHeaderSplitterArea(P)
+        else
+          IsVSplitterHit := InHeaderSplitterArea(P) and CanSplitterResize(P);
         IsHSplitterHit := HSplitterHit;
 
         if IsVSplitterHit or IsHSplitterHit then
@@ -12779,12 +12732,14 @@ begin
           FColumns.FHoverIndex := NoColumn;
           if IsVSplitterHit then
           begin
-            DoBeforeHeightTracking(GetShiftState);
+            if not (csDesigning in Treeview.ComponentState) then
+              DoBeforeHeightTracking(GetShiftState);
             Include(FStates, hsHeightTrackPending)
           end
           else
           begin
-            DoBeforeColumnWidthTracking(FColumns.FTrackIndex, GetShiftState);
+            if not (csDesigning in Treeview.ComponentState) then
+              DoBeforeColumnWidthTracking(FColumns.FTrackIndex, GetShiftState);
             Include(FStates, hsColumnWidthTrackPending);
           end;
 
@@ -12796,7 +12751,9 @@ begin
           if IsInHeader then
           begin
             HitIndex := Columns.AdjustDownColumn(P);
-            if (hoDrag in FOptions) and (HitIndex > NoColumn) and (coDraggable in FColumns[HitIndex].FOptions) then
+            // in design-time header columns are always draggable
+            if ((csDesigning in Treeview.ComponentState) and (HitIndex > NoColumn)) or
+               ((hoDrag in FOptions) and (HitIndex > NoColumn) and (coDraggable in FColumns[HitIndex].FOptions)) then
             begin
               // Show potential drag operation.
               // Disabled columns do not start a drag operation because they can't be clicked.
@@ -12808,9 +12765,10 @@ begin
           end;
 
         // This is a good opportunity to notify the application.
-        if IsInHeader then
+        if not (csDesigning in Treeview.ComponentState) and IsInHeader then
           FOwner.DoHeaderMouseDown(mbLeft, GetShiftState, P.X, P.Y + Integer(FHeight));
       end;
+      // {$ENDIF Fr0sT_mod}
     WM_NCRBUTTONDOWN:
       begin
         with TWMNCRButtonDown(Message) do
@@ -12981,10 +12939,8 @@ begin
     WM_MOUSEMOVE: // mouse capture and general message redirection
       Result := HandleHeaderMouseMove(TWMMouseMove(Message));
     WM_SETCURSOR:
-      {$IFDEF Fr0sT_mod}
+      // {$IFDEF Fr0sT_mod} !! Feature implanted into main code !!
       // Feature: design-time header
-      // Code is partial copy of run-time one except event calls and option checks
-      // (in design-time header columns are always resizable/draggable)
       if (FStates = []) then
       begin
         // Retrieve last cursor position (GetMessagePos does not work here, I don't know why).
@@ -12993,47 +12949,24 @@ begin
         // Is the mouse in the header rectangle and near the splitters?
         P := Treeview.ScreenToClient(P);
         IsHSplitterHit := HSplitterHit;
-        IsVSplitterHit := InHeaderSplitterArea(P);
+        // in design-time header columns are always resizable
+        if (csDesigning in Treeview.ComponentState) then
+          IsVSplitterHit := InHeaderSplitterArea(P)
+        else
+          IsVSplitterHit := InHeaderSplitterArea(P) and CanSplitterResize(P);
 
         if IsVSplitterHit or IsHSplitterHit then
         begin
           NewCursor := Screen.Cursors[Treeview.Cursor];
-          if IsVSplitterHit then
+          if IsVSplitterHit and (hoHeightResize in FOptions) or (csDesigning in Treeview.ComponentState) then
             NewCursor := Screen.Cursors[crVertSplit]
           else
             if IsHSplitterHit then
               NewCursor := Screen.Cursors[crHeaderSplit];
 
-          Result := NewCursor <> Screen.Cursors[crDefault];
-          if Result then
-          begin
-            Windows.SetCursor(NewCursor);
-            Message.Result := 1;
-          end
-        end;
-      end
-      else
-      {$ENDIF Fr0sT_mod}
-      if {$IFNDEF Fr0sT_mod} not (csDesigning in FOwner.ComponentState) and {$ENDIF} (FStates = []) then
-      begin
-        // Retrieve last cursor position (GetMessagePos does not work here, I don't know why).
-        GetCursorPos(P);
+          if not (csDesigning in Treeview.ComponentState) then
+            Treeview.DoGetHeaderCursor(NewCursor);
 
-        // Is the mouse in the header rectangle and near the splitters?
-        P := Treeview.ScreenToClient(P);
-        IsHSplitterHit := HSplitterHit;
-        IsVSplitterHit := InHeaderSplitterArea(P) and CanSplitterResize(P);
-
-        if IsVSplitterHit or IsHSplitterHit then
-        begin
-          NewCursor := Screen.Cursors[Treeview.Cursor];
-          if IsVSplitterHit and (hoHeightResize in FOptions) then
-            NewCursor := Screen.Cursors[crVertSplit]
-          else
-            if IsHSplitterHit then
-              NewCursor := Screen.Cursors[crHeaderSplit];
-
-          Treeview.DoGetHeaderCursor(NewCursor);
           Result := NewCursor <> Screen.Cursors[crDefault];
           if Result then
           begin
@@ -13047,6 +12980,7 @@ begin
         Message.Result := 1;
         Result := True;
       end;
+      // {$ENDIF Fr0sT_mod}
     WM_KEYDOWN,
     WM_KILLFOCUS:
       if (Message.Msg = WM_KILLFOCUS) or
@@ -19443,8 +19377,8 @@ procedure TBaseVirtualTree.WMNCHitTest(var Message: TWMNCHitTest);
 
 begin
   inherited;
-  // Feature: design-time header
-  if {$IFNDEF Fr0sT_mod} not (csDesigning in ComponentState) and {$ENDIF} (hoVisible in FHeader.FOptions) and
+  // {$IFDEF Fr0sT_mod} !! Feature implanted into main code !! Feature: design-time header.
+  if (hoVisible in FHeader.FOptions) and
     FHeader.InHeader(ScreenToClient(SmallPointToPoint(Message.Pos))) then
     Message.Result := HTBORDER;
 end;
@@ -19677,68 +19611,56 @@ var
 begin
   with Message do
   begin
-    if (CursorWnd = Handle) and {$IFNDEF Fr0sT_mod} not (csDesigning in ComponentState) and {$ENDIF}
+    // {$IFDEF Fr0sT_mod} !! Feature implanted into main code !!
+    // Feature: design-time header
+    // Allow header to handle cursor and return control's default if it did nothing
+    if (CursorWnd = Handle) and
       ([tsWheelPanning, tsWheelScrolling] * FStates = []) then
     begin
-      {$IFDEF Fr0sT_mod}
-      // Feature: design-time header
-      // Allow header to handle cursor and return control's default if it did nothing
-      if (csDesigning in ComponentState) then
-      begin
-        if not FHeader.HandleMessage(TMessage(Message)) then
-        begin
-          // Apply own cursors only if there is no global cursor set.
-          if Screen.Cursor = crDefault then
-          begin
-            NewCursor := Cursor;
-            Windows.SetCursor(Screen.Cursors[NewCursor]);
-            Message.Result := 1;
-          end
-          else
-            inherited;
-        end
-        else
-          inherited;
-      end
-      else
-      {$ENDIF Fr0sT_mod}
       if not FHeader.HandleMessage(TMessage(Message)) then
       begin
         // Apply own cursors only if there is no global cursor set.
         if Screen.Cursor = crDefault then
         begin
-          NewCursor := crDefault;
-          if (toNodeHeightResize in FOptions.FMiscOptions) then
+          // node resizing and hot tracking - for run-time only
+          if not (csDesigning in ComponentState) then
           begin
-            GetCursorPos(P);
-            P := ScreenToClient(P);
-            GetHitTestInfoAt(P.X, P.Y, True, HitInfo);
-            if (hiOnItem in HitInfo.HitPositions) and
-               ([hiUpperSplitter, hiLowerSplitter] * HitInfo.HitPositions <> []) then
+            NewCursor := crDefault;
+            if (toNodeHeightResize in FOptions.FMiscOptions) then
             begin
-              if hiUpperSplitter in HitInfo.HitPositions then
-                Node := GetPreviousVisible(HitInfo.HitNode, True)
-              else
-                Node := HitInfo.HitNode;
+              GetCursorPos(P);
+              P := ScreenToClient(P);
+              GetHitTestInfoAt(P.X, P.Y, True, HitInfo);
+              if (hiOnItem in HitInfo.HitPositions) and
+                 ([hiUpperSplitter, hiLowerSplitter] * HitInfo.HitPositions <> []) then
+              begin
+                if hiUpperSplitter in HitInfo.HitPositions then
+                  Node := GetPreviousVisible(HitInfo.HitNode, True)
+                else
+                  Node := HitInfo.HitNode;
 
-              if CanSplitterResizeNode(P, Node, HitInfo.HitColumn) then
-                NewCursor := crVertSplit;
+                if CanSplitterResizeNode(P, Node, HitInfo.HitColumn) then
+                  NewCursor := crVertSplit;
+              end;
             end;
-          end;
 
-          if (NewCursor = crDefault) then
-            if (toHotTrack in FOptions.PaintOptions) and Assigned(FCurrentHotNode) and (FHotCursor <> crDefault) then
-              NewCursor := FHotCursor
-            else
-              NewCursor := Cursor;
+            if (NewCursor = crDefault) then
+              if (toHotTrack in FOptions.PaintOptions) and Assigned(FCurrentHotNode) and (FHotCursor <> crDefault) then
+                NewCursor := FHotCursor
+              else
+                NewCursor := Cursor;
 
-          DoGetCursor(NewCursor);
+            DoGetCursor(NewCursor);
+          end
+          else
+            NewCursor := Cursor;
           Windows.SetCursor(Screen.Cursors[NewCursor]);
           Message.Result := 1;
         end
         else
           inherited;
       end;
+      // {$ENDIF Fr0sT_mod}
     end
     else
       inherited;
