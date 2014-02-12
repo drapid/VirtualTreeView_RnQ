@@ -1,0 +1,3 @@
+This branch consolidates all mods to VitrualTreeView code.
+DO NOT base on it as it may get force-rewritten in any time!
+Instead, apply the needed mods by git merge.
