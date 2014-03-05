@@ -233,6 +233,15 @@ Packages/CBuilder[!!-~]2010/VirtualTreesD.res -text
 Packages/CBuilder[!!-~]2010/VirtualTreesR.cbproj -text
 Packages/CBuilder[!!-~]2010/VirtualTreesR.cpp -text
 Packages/CBuilder[!!-~]2010/VirtualTreesR.res -text
+Packages/CBuilder[!!-~]XE5/CBuilder[!!-~]XE5.groupproj -text
+Packages/CBuilder[!!-~]XE5/VirtualTreesD.cbproj -text
+Packages/CBuilder[!!-~]XE5/VirtualTreesD.cpp -text
+Packages/CBuilder[!!-~]XE5/VirtualTreesD.ico -text
+Packages/CBuilder[!!-~]XE5/VirtualTreesD.res -text
+Packages/CBuilder[!!-~]XE5/VirtualTreesR.cbproj -text
+Packages/CBuilder[!!-~]XE5/VirtualTreesR.cpp -text
+Packages/CBuilder[!!-~]XE5/VirtualTreesR.ico -text
+Packages/CBuilder[!!-~]XE5/VirtualTreesR.res -text
 Packages/Delphi[!!-~]2005/VirtualTreesD.bdsproj -text
 Packages/Delphi[!!-~]2005/VirtualTreesD.dpk -text
 Packages/Delphi[!!-~]2005/VirtualTreesD.res -text
@@ -299,9 +308,11 @@ Packages/RAD[!!-~]Studio[!!-~]XE4/VirtualTreesR.dpk -text
 Packages/RAD[!!-~]Studio[!!-~]XE4/VirtualTreesR.dproj -text
 Packages/RAD[!!-~]Studio[!!-~]XE4/VirtualTreesR.res -text
 Packages/RAD[!!-~]Studio[!!-~]XE5/RAD[!!-~]Studio[!!-~]XE5.groupproj -text
+Packages/RAD[!!-~]Studio[!!-~]XE5/VirtualTreesD.cpp -text
 Packages/RAD[!!-~]Studio[!!-~]XE5/VirtualTreesD.dpk -text
 Packages/RAD[!!-~]Studio[!!-~]XE5/VirtualTreesD.dproj -text
 Packages/RAD[!!-~]Studio[!!-~]XE5/VirtualTreesD.res -text
+Packages/RAD[!!-~]Studio[!!-~]XE5/VirtualTreesR.cpp -text
 Packages/RAD[!!-~]Studio[!!-~]XE5/VirtualTreesR.dpk -text
 Packages/RAD[!!-~]Studio[!!-~]XE5/VirtualTreesR.dproj -text
 Packages/RAD[!!-~]Studio[!!-~]XE5/VirtualTreesR.res -text
@@ -338,6 +349,7 @@ Resources/VT[!!-~]tick[!!-~]light.bmp -text
 Resources/VT[!!-~]utilities.bmp -text
 Resources/VT[!!-~]vertical[!!-~]split.cur -text
 Source/VTAccessibility.pas -text
+Source/VTAccessibilityFactory.hpp -text
 Source/VTAccessibilityFactory.pas -text
 Source/VTHeaderPopup.dtx -text
 Source/VTHeaderPopup.pas -text
