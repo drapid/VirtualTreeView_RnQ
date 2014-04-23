@@ -238,6 +238,13 @@ Packages/CBuilder[!!-~]XE5/VirtualTreesD.cbproj -text
 Packages/CBuilder[!!-~]XE5/VirtualTreesD.cpp -text
 Packages/CBuilder[!!-~]XE5/VirtualTreesR.cbproj -text
 Packages/CBuilder[!!-~]XE5/VirtualTreesR.cpp -text
+Packages/CBuilder[!!-~]XE6/CBuilder[!!-~]XE6.groupproj -text
+Packages/CBuilder[!!-~]XE6/VirtualTreesD.cbproj -text
+Packages/CBuilder[!!-~]XE6/VirtualTreesD.cpp -text
+Packages/CBuilder[!!-~]XE6/VirtualTreesD.res -text
+Packages/CBuilder[!!-~]XE6/VirtualTreesR.cbproj -text
+Packages/CBuilder[!!-~]XE6/VirtualTreesR.cpp -text
+Packages/CBuilder[!!-~]XE6/VirtualTreesR.res -text
 Packages/Delphi[!!-~]2005/VirtualTreesD.bdsproj -text
 Packages/Delphi[!!-~]2005/VirtualTreesD.dpk -text
 Packages/Delphi[!!-~]2005/VirtualTreesD.res -text
