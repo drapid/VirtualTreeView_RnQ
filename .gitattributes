@@ -351,6 +351,7 @@ Resources/VT[!!-~]tick[!!-~]dark.bmp -text
 Resources/VT[!!-~]tick[!!-~]light.bmp -text
 Resources/VT[!!-~]utilities.bmp -text
 Resources/VT[!!-~]vertical[!!-~]split.cur -text
+Resources/VirtualTreeview-Icon.ico -text
 Source/VTAccessibility.pas -text
 Source/VTAccessibilityFactory.hpp -text
 Source/VTAccessibilityFactory.pas -text
