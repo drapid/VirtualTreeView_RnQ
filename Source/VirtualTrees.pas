@@ -49,7 +49,9 @@ unit VirtualTrees;
 
 interface
 
-{$if CompilerVersion < 24}{$MESSAGE FATAL 'This version supports only RAD Studio XE3 and higher. Please use V5 or:  https://virtual-treeview.googlecode.com/svn/branches/V5_stable'}{$ifend}
+// << Fr0sT mod
+{$if CompilerVersion < 23}{$MESSAGE FATAL 'This version supports only RAD Studio XE2 and higher. Please use V5 or:  https://virtual-treeview.googlecode.com/svn/branches/V5_stable'}{$ifend}
+// Fr0sT mod >>
 
 {$booleval off} // Use fastest possible boolean evaluation
 
@@ -58,7 +60,11 @@ interface
 {$WARN UNSAFE_CAST OFF}
 {$WARN UNSAFE_CODE OFF}
 
+// << Fr0sT mod
+{$if CompilerVersion >= 24}
 {$LEGACYIFEND ON}
+{$ifend}
+// Fr0sT mod >>
 
 {$WARN IMPLICIT_STRING_CAST       OFF}
 {$WARN IMPLICIT_STRING_CAST_LOSS  OFF}
@@ -2284,9 +2290,10 @@ type
 
     FVclStyleEnabled: Boolean;
 
+    {$if CompilerVersion >= 24}
     procedure CMStyleChanged(var Message: TMessage); message CM_STYLECHANGED;
     procedure CMParentDoubleBufferedChange(var Message: TMessage); message CM_PARENTDOUBLEBUFFEREDCHANGED;
-
+    {$ifend}
     procedure AdjustCoordinatesByIndent(var PaintInfo: TVTPaintInfo; Indent: Integer);
     procedure AdjustTotalCount(Node: PVirtualNode; Value: Integer; relative: Boolean = False);
     procedure AdjustTotalHeight(Node: PVirtualNode; Value: Integer; relative: Boolean = False);
@@ -2711,7 +2718,7 @@ type
     procedure UpdateDesigner; virtual;
     procedure UpdateEditBounds; virtual;
     procedure UpdateHeaderRect; virtual;
-    procedure UpdateStyleElements; override;
+    procedure UpdateStyleElements; {$if CompilerVersion >= 24}override;{$ifend}
     procedure UpdateWindowAndDragImage(const Tree: TBaseVirtualTree; TreeRect: TRect; UpdateNCArea,
       ReshowDragImage: Boolean); virtual;
     procedure ValidateCache; virtual;
@@ -3484,7 +3491,9 @@ type
     property SelectionCurveRadius;
     property ShowHint;
     property StateImages;
+    {$if CompilerVersion >= 24}
     property StyleElements;
+    {$ifend}
     property TabOrder;
     property TabStop default True;
     property TextMargin;
@@ -3886,7 +3895,9 @@ type
     property OnCanResize;
     property OnGesture;
     property Touch;
+    {$if CompilerVersion >= 24}
     property StyleElements;
+    {$ifend}
   end;
 
 type
@@ -11084,7 +11095,7 @@ var
       end  
       else
       begin
-        if ((tsUseThemes in FHeader.Treeview.FStates) and (FHeader.Treeview.VclStyleEnabled and (seClient in FHeader.FOwner.StyleElements))) then
+        if ((tsUseThemes in FHeader.Treeview.FStates) and (FHeader.Treeview.VclStyleEnabled {$if CompilerVersion >= 24} and (seClient in FHeader.FOwner.StyleElements){$IFEND})) then
         begin
           Details := StyleServices.GetElementDetails(thHeaderItemRightNormal);
           StyleServices.DrawElement(Handle, Details, BackgroundRect, @BackgroundRect);
@@ -11164,7 +11175,7 @@ var
           FHeader.Treeview.DoAdvancedHeaderDraw(PaintInfo, [hpeBackground])
         else
         begin
-          if ((tsUseThemes in FHeader.Treeview.FStates)   and (FHeader.Treeview.VclStyleEnabled and (seClient in FHeader.FOwner.StyleElements))) then
+          if ((tsUseThemes in FHeader.Treeview.FStates)   and (FHeader.Treeview.VclStyleEnabled {$if CompilerVersion >= 24} and (seClient in FHeader.FOwner.StyleElements){$IFEND})) then
           begin
             if IsDownIndex then
               Details := StyleServices.GetElementDetails(thHeaderItemPressed)
@@ -13788,7 +13799,7 @@ end;
 function TVTColors.GetBackgroundColor: TColor;
 begin
 // XE2 VCL Style
-  if FOwner.VclStyleEnabled and (seClient in FOwner.StyleElements) then
+  if FOwner.VclStyleEnabled {$IF CompilerVersion >= 24}and (seClient in FOwner.StyleElements){$IFEND} then
     Result := StyleServices.GetStyleColor(scTreeView)
   else
     Result := FOwner.Color;
@@ -13813,9 +13824,11 @@ begin
       5:
         StyleServices.GetElementColor(StyleServices.GetElementDetails(ttBranch), ecBorderColor, Result); // TreeLineColor
       7:
+      {$if CompilerVersion >= 24}
         if not (seBorder in FOwner.StyleElements) then
           Result := FColors[Index]
         else
+      {$IFEnd}
          Result := StyleServices.GetSystemColor(clBtnFace); // BorderColor
       8:
         if not StyleServices.GetElementColor(StyleServices.GetElementDetails(ttItemHot), ecTextColor, Result) or
@@ -13843,7 +13856,7 @@ end;
 function TVTColors.GetHeaderFontColor: TColor;
 begin
 // XE2+ VCL Style
-  if FOwner.VclStyleEnabled and (seFont in FOwner.StyleElements) then
+  if FOwner.VclStyleEnabled {$IF CompilerVersion >= 24}and (seFont in FOwner.StyleElements){$IFEND} then
     StyleServices.GetElementColor(StyleServices.GetElementDetails(thHeaderItemNormal), ecTextColor, Result)
   else
     Result := FOwner.FHeader.Font.Color;
@@ -13853,7 +13866,7 @@ end;
 
 function TVTColors.GetNodeFontColor: TColor;
 begin
-  if FOwner.VclStyleEnabled and (seFont in FOwner.StyleElements) then
+  if FOwner.VclStyleEnabled {$IF CompilerVersion >= 24}and (seFont in FOwner.StyleElements){$IFEND} then
     StyleServices.GetElementColor(StyleServices.GetElementDetails(ttItemNormal), ecTextColor, Result)
   else
     Result := FOwner.Font.Color;
@@ -17374,10 +17387,13 @@ end;
 procedure TBaseVirtualTree.CMBorderChanged(var Message: TMessage);
 begin
   inherited;
+  {$if CompilerVersion >= 24}
   if VclStyleEnabled and (seBorder in StyleElements) then
     RecreateWnd;
+  {$IFEND}
 end;
 
+{$if CompilerVersion >= 24}
 procedure TBaseVirtualTree.CMParentDoubleBufferedChange(var Message: TMessage);
 begin
   // empty by intention, we do our own buffering
@@ -17388,6 +17404,7 @@ begin
   VclStyleChanged;
   RecreateWnd;
 end;
+{$ifend}
 
 //----------------------------------------------------------------------------------------------------------------------
 
@@ -19237,11 +19254,13 @@ begin
     OriginalWMNCPaint(DC);
     ReleaseDC(Handle, DC);
   end;
-    if (((tsUseThemes in FStates) and not VclStyleEnabled) or (VclStyleEnabled and (seBorder in StyleElements))) then
+    if (((tsUseThemes in FStates) and not VclStyleEnabled) or (VclStyleEnabled {$IF CompilerVersion >= 24} and (seBorder in StyleElements) {$IFEND})) then
       StyleServices.PaintBorder(Self, False)
+    {$IF CompilerVersion >= 24}
     else
       if (VclStyleEnabled and not (seBorder in StyleElements)) then
         TStyleManager.SystemStyle.PaintBorder(Self, False)
+    {$IFEND};
 end;
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -22370,7 +22389,7 @@ begin
         begin
           if (suoRepaintHeader in Options) and (hoVisible in FHeader.FOptions) then
             FHeader.Invalidate(nil);
-          if not (tsSizing in FStates) and (FScrollBarOptions.ScrollBars in [System.UITypes.TScrollStyle.ssHorizontal, System.UITypes.TScrollStyle.ssBoth]) then
+          if not (tsSizing in FStates) and (FScrollBarOptions.ScrollBars in [{$if CompilerVersion >= 24}System.UITypes.TScrollStyle.{$ifend}ssHorizontal, {$if CompilerVersion >= 24}System.UITypes.TScrollStyle.{$ifend}ssBoth]) then
             UpdateHorizontalScrollBar(suoRepaintScrollBars in Options);
         end;
 
@@ -22378,7 +22397,7 @@ begin
         begin
           UpdateVerticalScrollBar(suoRepaintScrollBars in Options);
           if not (FHeader.UseColumns or IsMouseSelecting) and
-            (FScrollBarOptions.ScrollBars in [System.UITypes.TScrollStyle.ssHorizontal, System.UITypes.TScrollStyle.ssBoth]) then
+            (FScrollBarOptions.ScrollBars in [{$if CompilerVersion >= 24}System.UITypes.TScrollStyle.{$ifend}ssHorizontal, {$if CompilerVersion >= 24}System.UITypes.TScrollStyle.{$ifend}ssBoth]) then
             UpdateHorizontalScrollBar(suoRepaintScrollBars in Options);
         end;
       end;
@@ -23454,7 +23473,11 @@ end;
 
 function TBaseVirtualTree.GetIsSeBorderInStyleElement: Boolean;
 begin
+  {$if CompilerVersion >= 24}
   Result := (seBorder in StyleElements);
+  {$else}
+  Result := True;
+  {$IFEND}
 end;
 
 //----------------------------------------------------------------------------------------------------------------------
@@ -27466,7 +27489,9 @@ begin
       Self.ScrollBarOptions := ScrollBarOptions;
       Self.ShowHint := ShowHint;
       Self.StateImages := StateImages;
+      {$if CompilerVersion >= 24}
       Self.StyleElements := StyleElements;
+      {$ifend}
       Self.TabOrder := TabOrder;
       Self.TabStop := TabStop;
       Self.Visible := Visible;
@@ -33148,7 +33173,7 @@ begin
     else
       if (R.Bottom > ClientHeight) or Center then
       begin
-        HScrollBarVisible := (ScrollBarOptions.ScrollBars in [System.UITypes.TScrollStyle.ssBoth, System.UITypes.TScrollStyle.ssHorizontal]) and
+        HScrollBarVisible := (ScrollBarOptions.ScrollBars in [{$if CompilerVersion >= 24}System.UITypes.TScrollStyle.{$ifend}ssBoth, {$if CompilerVersion >= 24}System.UITypes.TScrollStyle.{$ifend}ssHorizontal]) and
           (ScrollBarOptions.AlwaysVisible or (Integer(FRangeX) > ClientWidth));
         if Center then
           SetOffsetY(FOffsetY - R.Bottom + ClientHeight div 2)
@@ -34037,7 +34062,7 @@ begin
   else
     FEffectiveOffsetX := -FOffsetX;
 
-  if FScrollBarOptions.ScrollBars in [System.UITypes.TScrollStyle.ssHorizontal, System.UITypes.TScrollStyle.ssBoth] then
+  if FScrollBarOptions.ScrollBars in [{$if CompilerVersion >= 24}System.UITypes.TScrollStyle.{$ifend}ssHorizontal, {$if CompilerVersion >= 24}System.UITypes.TScrollStyle.{$ifend}ssBoth] then
   begin
     ZeroMemory (@ScrollInfo, SizeOf(ScrollInfo));
     ScrollInfo.cbSize := SizeOf(ScrollInfo);
